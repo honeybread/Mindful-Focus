@@ -11,20 +11,24 @@ wrapStore(store, {
     portName: 'FS'
 });
 
+// invokes updateBadge function every second
 var startTimer = () => {
     updateBadge();
     var timerId = window.setTimeout(startTimer, updateTimerInterval);
 }
 
+// zero pads single digit minutes
 var pad = (d) => {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
+// plays indian bells when invoked
 var playIndianBell = () => {
     var audio = new Audio(indianBellUrl);
     audio.play();
 }
 
+// updates timer on badge when invoked and rings the selected bell when time is up
 var updateBadge = () => {
     var storeState = store.getState();
     store.dispatch({type:'UPDATE_TIMER'});
@@ -43,7 +47,7 @@ var updateBadge = () => {
         chrome.browserAction.setBadgeText({text: badgeText});
     }  else {
         chrome.browserAction.setBadgeText({text: ""});
-        chrome.browserAction.setBadgeBackgroundColor({color: [94, 94, 248, 1]});
+        chrome.browserAction.setBadgeBackgroundColor({color: [100, 59, 248, 1] }); /*[100, 59, 248, 0.966] --interesting 0.966 transparency is not working hence set to 1*/ 
     }
     
 }

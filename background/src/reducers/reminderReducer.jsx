@@ -1,9 +1,9 @@
 const initialState = {
-    current_reminder: undefined, 
-    current_reminder_input: undefined, 
-    time_until_alert: undefined,
-    time_on_alert: undefined,
-    alert_on: 0
+    current_reminder: undefined, // current reminder time in minutes
+    current_reminder_input: undefined, // reminder time - input given by the user- changes instantaneously for every key press changes by the user
+    time_until_alert: undefined, // amount of time in date format until next alert
+    time_on_alert: undefined, // clock time at the time of next alert
+    alert_on: 0 // flag to represent whether reminder on or not (currenly unused in the code)
 };
 
 var reminder = function(state= initialState, action) {
