@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import reminder from './reminderReducer.jsx';
+import volume from './volumeReducers.jsx';
 
 const reducers = combineReducers({
-   reminder
+   reminder,
+   volume
 })
 
 export default reducers;

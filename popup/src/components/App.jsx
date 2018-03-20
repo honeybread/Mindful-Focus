@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import CurrentReminder from './CurrentReminder.jsx'
+import VolumeController from './VolumeController.jsx'
 
 class App extends React.Component{
 
@@ -20,6 +21,10 @@ class App extends React.Component{
 
                     <div className="float-card">
                         <CurrentReminder reminderTime={reminder_time}/>
+                    </div>
+                        
+                    <div className="float-card">
+                        <VolumeController/>
                     </div>
 
                     <form name="setReminderForm" className="float-card" onSubmit={(e) => {e.preventDefault();

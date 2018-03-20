@@ -25,6 +25,7 @@ var pad = (d) => {
 // plays indian bells when invoked
 var playIndianBell = () => {
     var audio = new Audio(indianBellUrl);
+    audio.volume = storeState.volume.current_volume;
     audio.play();
 }
 

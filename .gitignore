@@ -2,3 +2,4 @@ node_modules/
 npm-debug.log
 build/background.js
 build/popup.js
+yarn.lock

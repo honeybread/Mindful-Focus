@@ -20,6 +20,8 @@
     "react": "^16.2.0",
     "react-chrome-redux": "^1.4.0",
     "react-dom": "^16.2.0",
+    "react-player-controls": "^0.5.18",
+    "react-rangeslider": "^2.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "webpack": "^4.1.1"
