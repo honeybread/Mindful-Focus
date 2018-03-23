@@ -2,7 +2,7 @@ import {Howler} from 'howler';
 const initialState = {
     current_volume: 0.2,
     previous_volume: 0.0,
-    current_volume_icon: './volume_unmute.png'
+    current_volume_icon: './volume_low.png'
 };
 
 var volume  = function(state = initialState, action) {
@@ -12,8 +12,10 @@ var volume  = function(state = initialState, action) {
 
             if (parseFloat(action.payload) === 0.0) {
                 var currentVolumeIcon = './volume_mute.png'
+            } else if (parseFloat(action.payload) <= 0.5) {
+                var currentVolumeIcon ='./volume_low.png'
             } else {
-                var currentVolumeIcon ='./volume_unmute.png'
+                var currentVolumeIcon ='./volume_high.png'
             }
             
             Howler.volume(parseFloat(action.payload));
@@ -27,8 +29,10 @@ var volume  = function(state = initialState, action) {
 
             if (previousVolume === 0.0) {
                 var currentVolumeIcon = './volume_mute.png'
+            } else if (previousVolume <= 0.5) {
+                var currentVolumeIcon ='./volume_low.png'
             } else {
-                var currentVolumeIcon ='./volume_unmute.png'
+                var currentVolumeIcon ='./volume_high.png'
             }
 
             Howler.volume(state.previous_volume);

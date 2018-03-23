@@ -9,7 +9,6 @@ class VolumeController extends React.Component{
 
     constructor({props}) {
         super(props);
-        this.state = {volume_icon: './volume_unmute.png'}
         this.onVolumeChange = this.onVolumeChange.bind(this);
         this.onMuteUnmute = this.onMuteUnmute.bind(this);
     };
@@ -31,7 +30,7 @@ class VolumeController extends React.Component{
             
         } else {
             var defaultVolume = 0.2;
-            var defaultVolumeIcon = './volume_unmute.png'
+            var defaultVolumeIcon = './volume_low.png'
         }
 
         
