@@ -16,36 +16,28 @@ class VolumeController extends React.Component{
 
     onVolumeChange(e) {
         e.preventDefault();
-        if (parseFloat(e.target.value) === 0.0){
-            this.setState({volume_icon: './volume_mute.png'});
-        } else {
-            this.setState({volume_icon: './volume_unmute.png'});
-        }
         this.props.dispatch({type: 'CHANGE_VOLUME', payload: e.target.value});
     }
 
     onMuteUnmute(e) {
         e.preventDefault();
-        this.props.dispatch({type: 'MUTE_TOGGLE'});
-        if (this.state.volume_icon == './volume_unmute.png'){
-            this.setState({volume_icon: './volume_mute.png'})
-        } else {
-            this.setState({volume_icon: './volume_unmute.png'})
-        }
-            
+        this.props.dispatch({type: 'MUTE_TOGGLE'});     
     }
 
     render() {
         if (this.props.current_state){
             var defaultVolume = this.props.current_state.current_volume;
+            var defaultVolumeIcon = this.props.current_state.current_volume_icon;
+            
         } else {
             var defaultVolume = 0.2;
+            var defaultVolumeIcon = './volume_unmute.png'
         }
-        console.log(defaultVolume);
+
         
         return(
             <div>
-                <img src={this.state.volume_icon} onClick={this.onMuteUnmute}/> <input type="range" value={defaultVolume} min="0" max="1" step="any"
+                <img src={defaultVolumeIcon} onClick={this.onMuteUnmute}/> <input type="range" value={defaultVolume} min="0" max="1" step="any"
                 onChange={this.onVolumeChange} />
             </div>
         );

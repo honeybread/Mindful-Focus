@@ -37,6 +37,7 @@ class App extends React.Component{
                     </form>
                     <button className="float-button" onClick={(e) => {e.preventDefault();
                                                                       this.props.dispatch({type: 'SWITCH_OFF_TIMER'});
+                                                                      this.props.dispatch({type: 'SWITCH_OFF_VOLUME'});
                                                                       window.close();
                                                                       }}> Switch Off Bells</button>
                 </div>);
