@@ -1,6 +1,8 @@
 import {createStore} from 'redux';
 import reducers from './reducers/combineReducers.jsx';
 import {wrapStore} from 'react-chrome-redux';
+import {Howl, Howler} from 'howler';
+
 const updateTimerInterval = 1000;
 
 const store =  createStore(reducers);
@@ -24,9 +26,11 @@ var pad = (d) => {
 
 // plays indian bells when invoked
 var playIndianBell = () => {
-    var audio = new Audio(indianBellUrl);
-    audio.volume = storeState.volume.current_volume;
-    audio.play();
+    var bell = new Howl({
+        src: ['./indianBell.mp3']
+    });
+    // audio.volume = storeState.volume.current_volume
+    bell.play();
 }
 
 // updates timer on badge when invoked and rings the selected bell when time is up

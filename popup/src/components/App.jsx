@@ -24,7 +24,7 @@ class App extends React.Component{
                     </div>
                         
                     <div className="float-card">
-                        <VolumeController/>
+                        <VolumeController volume={this.props.current_state.volume}/>
                     </div>
 
                     <form name="setReminderForm" className="float-card" onSubmit={(e) => {e.preventDefault();
